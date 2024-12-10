@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TeoSoft.Models.Devolucion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Venta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDeDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotivoDeDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoDeDevolucion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venta.VentaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.ProductoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDeDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotivoDeDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDeDevolucion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdDevolucion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdDevolucion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdDevolucion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
